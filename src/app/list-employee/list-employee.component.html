@@ -1,0 +1,35 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">nombre</th>
+        <th scope="col">apellido</th>
+        <th scope="col">cargo</th>
+        <th scope="col">departamento</th>
+      </tr>
+    </thead>
+    <tbody>
+        @if(nameSearch){
+            @if(filterValue.length > 0){
+                @for( employee of filterValue; track $index){
+                    <tr>
+                        <td>{{employee.nombre}}</td>
+                        <td>{{employee.apellido}}</td>
+                        <td>{{employee.cargo}}</td>
+                        <td>{{employee.departamento}}</td>
+                    </tr>
+                }
+            }
+            @else {<h1>No se ha encontrado nada</h1>}
+        }
+        @else {
+            @for( employee of employees; track $index){
+                <tr>
+                    <td>{{employee.nombre}}</td>
+                    <td>{{employee.apellido}}</td>
+                    <td>{{employee.cargo}}</td>
+                    <td>{{employee.departamento}}</td>
+                </tr>
+            }
+        }
+    </tbody>
+  </table>
